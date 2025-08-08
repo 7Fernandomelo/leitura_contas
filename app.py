@@ -5,7 +5,7 @@ from openai import OpenAI
 
 app = Flask(__name__)
 
-client = OpenAI(api_key="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")
+client = OpenAI(api_key=os.getenv("OPENAI_API_KEY"))
 
 HTML_FORM = """
 <!DOCTYPE html>
@@ -96,4 +96,5 @@ def index():
                 return f"<p>Erro ao processar imagem ou resposta da OpenAI: {e}</p>"
 
     return render_template_string(HTML_FORM)
+
 
