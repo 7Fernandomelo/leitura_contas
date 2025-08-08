@@ -2,6 +2,7 @@ from flask import Flask, request, render_template_string
 import base64
 import json
 from openai import OpenAI
+import os
 
 app = Flask(__name__)
 
@@ -96,5 +97,6 @@ def index():
                 return f"<p>Erro ao processar imagem ou resposta da OpenAI: {e}</p>"
 
     return render_template_string(HTML_FORM)
+
 
 
