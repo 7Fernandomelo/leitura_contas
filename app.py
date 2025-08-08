@@ -80,6 +80,7 @@ def index():
                 )
 
                 conteudo = resposta.choices[0].message.content
+                conteudo = conteudo.strip("`json\n").strip("`").replace("\\n", "\n")
 
                 try:
                     dados = json.loads(conteudo)
@@ -97,6 +98,7 @@ def index():
                 return f"<p>Erro ao processar imagem ou resposta da OpenAI: {e}</p>"
 
     return render_template_string(HTML_FORM)
+
 
 
 
