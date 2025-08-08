@@ -61,9 +61,23 @@ def index():
                                 {
                                     "type": "text",
                                     "text": (
-                                        "Extraia as seguintes informações da conta de luz: "
-                                        "valor da conta, data de referência, consumo em kW "
-                                        "e nome da concessionária. Responda apenas com os dados em formato JSON válido, sem texto adicional."
+                                         """
+Você é um extrator de informações de contas de luz. Dada uma imagem de fatura de energia elétrica, extraia os seguintes campos:
+
+- valor total da conta
+- data de referência
+- consumo em kWh
+- nome da empresa/concessionária
+
+Retorne tudo em formato JSON como este exemplo:
+
+{
+  "valor": "R$ 123,45",
+  "data": "08/2025",
+  "consumo": 287,
+  "concessionaria": "Enel"
+}
+"""
                                     ),
                                 },
                                 {
@@ -98,6 +112,7 @@ def index():
                 return f"<p>Erro ao processar imagem ou resposta da OpenAI: {e}</p>"
 
     return render_template_string(HTML_FORM)
+
 
 
 
