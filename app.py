@@ -33,10 +33,10 @@ HTML_RESULTADO = """
 <body>
     <h1>Informações extraídas</h1>
     <ul>
-        <li><strong>Valor da Conta:</strong> {valor}</li>
-        <li><strong>Data de Referência:</strong> {data}</li>
-        <li><strong>Consumo (kW):</strong> {consumo}</li>
-        <li><strong>Concessionária:</strong> {concessionaria}</li>
+        <li><strong>Valor da Conta:</strong> {{valor}}</li>
+        <li><strong>Data de Referência:</strong> {{data}}</li>
+        <li><strong>Consumo (kW):</strong> {{consumo}}</li>
+        <li><strong>Concessionária:</strong> {{concessionaria}}</li>
     </ul>
     <a href="/">Enviar outra imagem</a>
 </body>
@@ -98,6 +98,7 @@ def index():
                 return f"<p>Erro ao processar imagem ou resposta da OpenAI: {e}</p>"
 
     return render_template_string(HTML_FORM)
+
 
 
 
